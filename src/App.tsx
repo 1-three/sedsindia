@@ -237,11 +237,11 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="p-6 rounded-xl bg-white/10">
               <h3 className="text-2xl font-semibold">Projects Completed</h3>
-              <CountUp end={120} duration={3} className="text-4xl font-bold" />
+              <CountUp end={50} duration={3} className="text-4xl font-bold" />
             </div>
             <div className="p-6 rounded-xl bg-white/10">
               <h3 className="text-2xl font-semibold">Active Chapters</h3>
-              <CountUp end={50} duration={3} className="text-4xl font-bold" />
+              <CountUp end={11} duration={3} className="text-4xl font-bold" />
             </div>
             <div className="p-6 rounded-xl bg-white/10">
               <h3 className="text-2xl font-semibold">Members</h3>
