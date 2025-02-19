@@ -3,6 +3,7 @@ import LocomotiveScroll from 'locomotive-scroll';
 import CountUp from 'react-countup';
 import ParticlesBackground from './components/ParticlesBackground';
 import { Rocket, Users, Globe2, BookOpen } from 'lucide-react';
+import 'locomotive-scroll/dist/locomotive-scroll.css'; // Ensure CSS is imported
 
 function App() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -10,16 +11,16 @@ function App() {
 
   useEffect(() => {
     if (!scrollRef.current) return;
-    
+
     const scroll = new LocomotiveScroll({
-      el: scrollRef.current,
-      smooth: true,
-      multiplier: 1,
-      class: "is-revealed"
+      lenisOptions: {
+        duration: 1.2, // Adjust scrolling smoothness
+        wheelMultiplier: 1.2, // Customize scroll speed
+      },
     });
 
     return () => {
-      scroll.destroy();
+      scroll.destroy(); // Clean up
     };
   }, []);
 
@@ -27,7 +28,7 @@ function App() {
   return (
 <div className="relative" style={{ filter: `hue-rotate(${hue}deg)` }}>
 <ParticlesBackground />
-      <div ref={scrollRef} className="relative z-10">
+<div ref={scrollRef} data-scroll-container className="relative z-10">
         {/* Hero Section */}
         <section className="min-h-screen flex items-center justify-center text-white px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -43,20 +44,22 @@ function App() {
           </div>
         </section>
 
-        {/* Hue Slider */}
-        <div className="fixed top-4 right-4 bg-white/10 p-3 rounded-lg backdrop-blur-md">
-        <div className="flex items-center space-x-2">
-  <Rocket className="w-5 h-5 text-white" />
-  <input
-    type="range"
-    min="0"
-    max="360"
-    value={hue}
-    onChange={(e) => setHue(Number(e.target.value))}
-    className="w-32 cursor-pointer"c
-  />
+{/* Hue Slider */}
+<div className="fixed top-4 right-4 bg-white/10 p-3 rounded-lg backdrop-blur-md">
+  <div className="flex items-center space-x-2">
+    <Rocket className="w-5 h-5 text-white" />
+    <input
+      type="range"
+      min="0"
+      max="360"
+      value={hue}
+      onChange={(e) => setHue(Number(e.target.value))}
+      className="w-32 cursor-pointer"
+      title="Adjust Hue"  // Accessibility improvement
+      aria-label="Adjust Hue"
+    />
+  </div>
 </div>
-        </div>
 
         {/* Impact Dashboard */}
         <section className="py-20 bg-black/50 backdrop-blur-sm text-white text-center">

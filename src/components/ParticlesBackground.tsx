@@ -1,4 +1,3 @@
-git config --global user.name "FIRST_NAME LAST_NAME"
 import { useCallback } from 'react';
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
