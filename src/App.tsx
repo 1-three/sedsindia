@@ -244,8 +244,8 @@ function App() {
               <CountUp end={50} duration={3} className="text-4xl font-bold" />
             </div>
             <div className="p-6 rounded-xl bg-white/10">
-              <h3 className="text-2xl font-semibold">Global Members</h3>
-              <CountUp end={10000} duration={3} className="text-4xl font-bold" />
+              <h3 className="text-2xl font-semibold">Members</h3>
+              <CountUp end={1000} duration={3} className="text-4xl font-bold" />
             </div>
           </div>
         </section>
