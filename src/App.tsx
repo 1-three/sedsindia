@@ -1,170 +1,83 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import LocomotiveScroll from 'locomotive-scroll';
-import CountUp from 'react-countup';
-import ParticlesBackground from './components/ParticlesBackground';
+import Navbar from './components/Navbar';
+import { ScrollToTop } from './components/ScrollToTop';
+import { ScrollContext } from './components/ScrollContext';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Rocket, Users, Globe2, BookOpen } from 'lucide-react';
+import ParticlesBackground from './components/ParticlesBackground';
+import Home from './pages/Home';
+import About from './pages/About';
+import Outreach from './pages/Outreach';
+import Projects from './pages/Projects';
+import Team from './pages/Team';
+import Alumni from './pages/Alumni';
+import Chapters from './pages/Chapters';
+import Blog from './pages/Blog';
+import Join from './pages/Join';
+import Applications from './pages/Applications';
 import 'locomotive-scroll/dist/locomotive-scroll.css'; // Ensure CSS is imported
+import { useLocation } from "react-router-dom";
 
-function App() {
+function AppContent() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [hue, setHue] = useState<number>(0);
+  const scrollInstance = useRef<LocomotiveScroll | null>(null);
+  const [hue, setHue] = useState(0);
+  const location = useLocation();
 
   useEffect(() => {
-    if (!scrollRef.current) return;
+    document.documentElement.style.setProperty("--hue", `${hue}deg`);
+  }, [hue]);
 
-    const scroll = new LocomotiveScroll({
-      el: scrollRef.current,
-      smooth: true,
-      multiplier: 1.2, // Customize scroll speed
-    });
+
+  useEffect(() => {
+    if (scrollInstance.current) {
+      scrollInstance.current.destroy();
+      scrollInstance.current = null;
+    }
+
+    if (scrollRef.current) {
+      scrollInstance.current = new LocomotiveScroll({
+        el: scrollRef.current,
+        smooth: true,
+        multiplier: 1.2,
+      });
+
+      scrollInstance.current.scrollTo(0, { duration: 0 });
+    }
 
     return () => {
-      scroll.destroy(); // Clean up
+      if (scrollInstance.current) {
+        scrollInstance.current.destroy();
+        scrollInstance.current = null;
+      }
     };
-  }, []);
+  }, [location]);
 
-  // Rest of your code remains the same
+  
   return (
-<div className="relative" style={{ filter: `hue-rotate(${hue}deg)` }}>
-<ParticlesBackground />
-<div ref={scrollRef} data-scroll-container className="relative z-10">
-        {/* Hero Section */}
-        <section className="min-h-screen flex items-center justify-center text-white px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-              Students for the Exploration and Development of Space
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 opacity-90">
-              Empowering the next generation of space professionals
-            </p>
-            <button className="animate-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">
-              Join SEDS
-            </button>
+
+    <ScrollContext.Provider value={scrollInstance}>
+      <div ref={scrollRef} data-scroll-container>
+        <ScrollToTop />
+        <div className="relative flex flex-col items-center z-100" style={{ filter: `hue-rotate(${hue}deg)` }}>
+        <ParticlesBackground />
+        <Navbar />
+          <div className="relative z-10">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/outreach" element={<Outreach />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/team" element={<Team/>} />
+              {/* <Route path="/alumni" element={<Alumni />} /> */}
+              <Route path="/chapters" element={<Chapters />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/join" element={<Join />} />
+              <Route path="/applications" element={<Applications />} />
+            </Routes>
           </div>
-        </section>
-
-{/* Hue Slider */}
-<div className="fixed top-4 right-4 bg-white/10 p-3 rounded-lg backdrop-blur-md">
-  <div className="flex items-center space-x-2">
-    <Rocket className="w-5 h-5 text-white" />
-    <input
-      type="range"
-      min="0"
-      max="360"
-      value={hue}
-      onChange={(e) => setHue(Number(e.target.value))}
-      className="w-32 cursor-pointer"
-      title="Adjust Hue"  // Accessibility improvement
-      aria-label="Adjust Hue"
-    />
-  </div>
-</div>
-
-        {/* Impact Dashboard */}
-        <section className="py-20 bg-black/50 backdrop-blur-sm text-white text-center">
-          <h2 className="text-4xl font-bold mb-12">Our Impact</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="p-6 rounded-xl bg-white/10">
-              <h3 className="text-2xl font-semibold">Projects Completed</h3>
-              <CountUp end={120} duration={3} className="text-4xl font-bold" />
-            </div>
-            <div className="p-6 rounded-xl bg-white/10">
-              <h3 className="text-2xl font-semibold">Active Chapters</h3>
-              <CountUp end={50} duration={3} className="text-4xl font-bold" />
-            </div>
-            <div className="p-6 rounded-xl bg-white/10">
-              <h3 className="text-2xl font-semibold">Global Members</h3>
-              <CountUp end={10000} duration={3} className="text-4xl font-bold" />
-            </div>
-          </div>
-        </section>
-
-        {/* Features Section */}
-        <section className="py-20 bg-black/50 backdrop-blur-sm text-white">
-          <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-16">What We Do</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[{
-                icon: <Rocket className="w-12 h-12 mx-auto" />, title: "Space Projects", description: "Hands-on experience with real space missions and projects"
-              }, {
-                icon: <Users className="w-12 h-12 mx-auto" />, title: "Community", description: "Connect with like-minded space enthusiasts"
-              }, {
-                icon: <Globe2 className="w-12 h-12 mx-auto" />, title: "Global Network", description: "Join chapters worldwide and expand your reach"
-              }, {
-                icon: <BookOpen className="w-12 h-12 mx-auto" />, title: "Education", description: "Access resources and learning opportunities"
-              }].map((feature, index) => (
-                <div key={index} className="feature-card text-center p-6 rounded-xl hover:bg-white/5">
-                  <div className="feature-icon mb-4">{feature.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                  <p className="opacity-80">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Latest News Section */}
-        <section className="py-20 text-white">
-          <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-16">Latest News</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[1, 2, 3].map((item) => (
-                <div key={item} className="news-card bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden">
-                  <img 
-                    src={`https://source.unsplash.com/random/800x600?space,${item}`}
-                    alt="Space news"
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">Space News Title</h3>
-                    <p className="opacity-80 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-                    <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors duration-300">Read more →</a>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="bg-black/50 backdrop-blur-sm text-white py-12">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              {[{
-                title: "About SEDS", content: "Empowering students to make an impact in space exploration since 1980."
-              }, {
-                title: "Quick Links", links: ["About Us", "Projects", "Chapters", "Contact"]
-              }, {
-                title: "Connect", links: ["Twitter", "LinkedIn", "Instagram", "Facebook"]
-              }, {
-                title: "Newsletter", content: "Stay updated with our latest news and events.", input: true
-              }].map((section, index) => (
-                <div key={index}>
-                  <h3 className="text-xl font-bold mb-4">{section.title}</h3>
-                  {section.content && <p className="opacity-80">{section.content}</p>}
-                  {section.links && (
-                    <ul className="space-y-2 opacity-80">
-                      {section.links.map((link, i) => (
-                        <li key={i}><a href="#" className="hover:text-blue-400 transition-colors duration-300">{link}</a></li>
-                      ))}
-                    </ul>
-                  )}
-                  {section.input && (
-                    <input
-                      type="email"
-                      placeholder="Enter your email"
-                      className="newsletter-input w-full px-4 py-2 rounded bg-white/20 backdrop-blur-sm border border-white/30 focus:outline-none focus:border-blue-400"
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
-            <div className="mt-12 pt-8 border-t border-white/20 text-center opacity-80">
-              <p>© 2025 SEDS INDIA. All rights reserved.</p>
-            </div>
-          </div>
-        </footer>
-
+        </div>
         <style>
           {`
             @keyframes footerGradient {
@@ -177,113 +90,51 @@ function App() {
             }
           `}
         </style>
-
       </div>
-    </div>
+    </ScrollContext.Provider>
   );
 }
 
-export default App;
-
-
-// import React, { useState } from 'react';
-// import CountUp from 'react-countup';
-// import ParticlesBackground from './components/ParticlesBackground';
-// import { Rocket, Users, Globe2, BookOpen } from 'lucide-react';
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+}
 
 // function App() {
+//   const scrollRef = useRef<HTMLDivElement>(null);
+//   const scrollInstance = useRef<LocomotiveScroll | null>(null);
 //   const [hue, setHue] = useState<number>(0);
+//   const location = useLocation();
 
-//   return (
-//     <div className="relative" style={{ filter: `hue-rotate(${hue}deg)` }}>
-//       <ParticlesBackground />
-//       <div className="relative z-10">
-//         {/* Hero Section */}
-//         <section className="min-h-screen flex items-center justify-center text-white px-4">
-//           <div className="max-w-4xl mx-auto text-center">
-//             <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-//               Students for the Exploration and Development of Space
-//             </h1>
-//             <p className="text-xl md:text-2xl mb-8 opacity-90">
-//               Empowering the next generation of space professionals
-//             </p>
-//             <button className="animate-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">
-//               Join SEDS
-//             </button>
-//           </div>
-//         </section>
+//   useEffect(() => {
+//     // Clean up any existing instance first
+//     if (scrollInstance.current) {
+//       scrollInstance.current.destroy();
+//       scrollInstance.current = null;
+//     }
 
-//         {/* Hue Slider */}
-//         <div className="fixed top-4 right-4 bg-white/10 p-3 rounded-lg backdrop-blur-md">
-//           <div className="flex items-center space-x-2">
-//             <Rocket className="w-5 h-5 text-white" />
-//             <input
-//               type="range"
-//               min="0"
-//               max="360"
-//               value={hue}
-//               onChange={(e) => setHue(Number(e.target.value))}
-//               className="w-32 cursor-pointer"
-//               title="Adjust Hue"
-//               aria-label="Adjust Hue"
-//             />
-//           </div>
-//         </div>
+//     // Initialize new instance
+//     if (scrollRef.current) {
+//       scrollInstance.current = new LocomotiveScroll({
+//         el: scrollRef.current,
+//         smooth: true,
+//         multiplier: 1.2,
+//       });
 
-//         {/* Impact Dashboard */}
-//         <section className="py-20 bg-black/50 backdrop-blur-sm text-white text-center">
-//           <h2 className="text-4xl font-bold mb-12">Our Impact</h2>
-//           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-//             <div className="p-6 rounded-xl bg-white/10">
-//               <h3 className="text-2xl font-semibold">Projects Completed</h3>
-//               <CountUp end={50} duration={3} className="text-4xl font-bold" />
-//             </div>
-//             <div className="p-6 rounded-xl bg-white/10">
-//               <h3 className="text-2xl font-semibold">Active Chapters</h3>
-//               <CountUp end={11} duration={3} className="text-4xl font-bold" />
-//             </div>
-//             <div className="p-6 rounded-xl bg-white/10">
-//               <h3 className="text-2xl font-semibold">Members</h3>
-//               <CountUp end={1000} duration={3} className="text-4xl font-bold" />
-//             </div>
-//           </div>
-//         </section>
+//       // Reset scroll position
+//       scrollInstance.current.scrollTo(0, { duration: 0 });
+//     }
 
-//         {/* Features Section */}
-//         <section className="py-20 bg-black/50 backdrop-blur-sm text-white">
-//           <div className="max-w-6xl mx-auto px-4">
-//             <h2 className="text-4xl font-bold text-center mb-16">What We Do</h2>
-//             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-//               {[{
-//                 icon: <Rocket className="w-12 h-12 mx-auto" />, title: "Space Projects", description: "Hands-on experience with real space missions and projects"
-//               }, {
-//                 icon: <Users className="w-12 h-12 mx-auto" />, title: "Community", description: "Connect with like-minded space enthusiasts"
-//               }, {
-//                 icon: <Globe2 className="w-12 h-12 mx-auto" />, title: "Global Network", description: "Join chapters worldwide and expand your reach"
-//               }, {
-//                 icon: <BookOpen className="w-12 h-12 mx-auto" />, title: "Education", description: "Access resources and learning opportunities"
-//               }].map((feature, index) => (
-//                 <div key={index} className="feature-card text-center p-6 rounded-xl hover:bg-white/5">
-//                   <div className="feature-icon mb-4">{feature.icon}</div>
-//                   <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-//                   <p className="opacity-80">{feature.description}</p>
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//         </section>
+//     // Cleanup on unmount or route change
+//     return () => {
+//       if (scrollInstance.current) {
+//         scrollInstance.current.destroy();
+//         scrollInstance.current = null;
+//       }
+//     };
+//   }, [location]);
 
-//         {/* Footer */}
-//         <footer className="bg-black/50 backdrop-blur-sm text-white py-12">
-//           <div className="max-w-6xl mx-auto px-4">
-//             <div className="mt-12 pt-8 border-t border-white/20 text-center opacity-80">
-//               <p>© 2025 SEDS INDIA. All rights reserved.</p>
-//             </div>
-//           </div>
-//         </footer>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default App;
+export default App;

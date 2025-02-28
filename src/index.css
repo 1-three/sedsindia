@@ -9,6 +9,8 @@ body {
   overflow-x: hidden;
   background: linear-gradient(135deg, #000428 0%, #004e92 100%);
   font-family: 'Space Grotesk', sans-serif;
+  transition: filter 0.3s ease;
+  filter: hue-rotate(var(--hue, 0deg));
 }
 
 /* Selection color */
@@ -100,4 +102,8 @@ body {
 
 .newsletter-input:focus {
   transform: scale(1.02);
+}
+
+[data-scroll-container] {
+  will-change: filter;
 }
