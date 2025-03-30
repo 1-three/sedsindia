@@ -6,7 +6,7 @@ function Team() {
       name: "Nupur Sharma",
       graduation: "2026",
       role: "Chairperson",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,4",
+      image: "images/nupur.jpg",
       quote: "If you can dream it you can do it",
       linkedin: "https://in.linkedin.com/in/nupur-sharma-a24b66274"
     },
@@ -14,7 +14,7 @@ function Team() {
       name: "Amod Gawade",
       graduation: "2026",
       role: "Vice-Chair",
-      image: "https://source.unsplash.com/random/400x400?man,professional,1",
+      image: "images/amodh.jpg",
       quote: "Genius is talent set on fire by courage.",
       linkedin: "https://www.linkedin.com/me?trk=p_mwlite_feed-secondary_nav"
     },
@@ -22,7 +22,7 @@ function Team() {
       name: "Shyam Venkatraman",
       graduation: "2027",
       role: "Executive Director",
-      image: "https://source.unsplash.com/random/400x400?man,professional,2",
+      image: "images/shyam.jpg",
       quote: "The purpose of life is a life of purpose",
       linkedin: "https://www.linkedin.com/in/shyam-venkatraman-b9374a21b/"
     },
@@ -30,7 +30,7 @@ function Team() {
       name: "Krishna Narwade",
       graduation: "2026",
       role: "Secretary",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,3",
+      image: "images/krishna.jpg",
       quote: "You only live once, but if you do it right, once is enough",
       linkedin: "https://www.linkedin.com/in/krishna-narwade-439ba0258"
     },
@@ -38,7 +38,7 @@ function Team() {
       name: "Arohi Soni",
       graduation: "2026",
       role: "Treasurer",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,1",
+      image: "images/arohi.jpg",
       quote: "Winners are not those who never fail, but those who never quit",
       linkedin: "https://www.linkedin.com/in/arohi-soni-ba9b5125b/"
     },
@@ -46,7 +46,7 @@ function Team() {
       name: "Aisha Jennath",
       graduation: "2026",
       role: "Initiative and Outreach Coordinator",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,2",
+      image: "images/aisha.jpg",
       quote: "Win small, Win early, Win often",
       linkedin: "https://www.linkedin.com/in/aishajennath"
     },
@@ -54,7 +54,7 @@ function Team() {
       name: "Vasundhra Sharma",
       graduation: "2027",
       role: "Creative and Design Lead",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,5",
+      image: "images/vasundhra.jpg",
       quote: "There is no greater agony than bearing an untold story inside you.",
       linkedin: "https://www.linkedin.com/in/vasundhra-s-80b081301?trk=contact-info"
     },
@@ -62,7 +62,7 @@ function Team() {
       name: "Sukruta Nadkarni",
       graduation: "2027",
       role: "Chapter Affairs and Expansion Manager",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,6",
+      image: "images/sukruta.jpg",
       quote: "Reach for the stars",
       linkedin: "https://www.linkedin.com/in/sukruta-nadkarni"
     },
@@ -70,7 +70,7 @@ function Team() {
       name: "Aatreyee",
       graduation: "2027",
       role: "Webmaster",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,7",
+      image: "images/aatreyee.jpg",
       quote: "Rage, rage against the dying of the light",
       linkedin: "https://www.linkedin.com/in/aatreyee/"
     },
@@ -78,7 +78,7 @@ function Team() {
       name: "Nikhil K",
       graduation: "2027",
       role: "OneSpace Manager",
-      image: "https://source.unsplash.com/random/400x400?man,professional,3",
+      image: "images/y.jpg",
       quote: "Slow and steady wins the race.",
       linkedin: "https://www.linkedin.com/in/nikhil-k-6b40352b2/"
     },
@@ -86,15 +86,15 @@ function Team() {
       name: "Vaibhavi",
       graduation: "2027",
       role: "Social Media Manager",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,8",
-      quote: "placeholder",
-      linkedin: "#"
+      image: "images/vaibhavi.jpg",
+      quote: "The people who are crazy enough to think that they can change the world are the ones who do",
+      linkedin: "https://www.linkedin.com/in/vaibhavi-yadav-13169a28b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
     },
     {
       name: "Ronak Madkaikar",
       graduation: "2026",
       role: "Projects Manager",
-      image: "https://source.unsplash.com/random/400x400?man,professional,4",
+      image: "images/x.jpg",
       quote: "Where curiosity meets innovation, the impossible becomes inevitable.",
       linkedin: "https://www.linkedin.com/in/ronak-madkaikar-732419285/"
     },
@@ -102,7 +102,7 @@ function Team() {
       name: "Shrinidhi G",
       graduation: "2027",
       role: "Design and Creatives",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,9",
+      image: "images/shrinidhi.jpg",
       quote: "Dream beyond the cosmos",
       linkedin: "https://www.linkedin.com/in/shrinidhi-g-64b0532b6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
     }
