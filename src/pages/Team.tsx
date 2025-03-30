@@ -1,4 +1,4 @@
-import { Award, Briefcase, GraduationCap } from 'lucide-react';
+import { Award, Briefcase, GraduationCap, Linkedin } from 'lucide-react';
 
 function Team() {
   const team = [
@@ -6,93 +6,105 @@ function Team() {
       name: "Amod Gawade",
       graduation: "2026",
       role: "Vice-Chair",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,1",
-      quote: "placeholder"
+      image: "https://source.unsplash.com/random/400x400?man,professional,1",
+      quote: "Genius is talent set on fire by courage.",
+      linkedin: "https://www.linkedin.com/me?trk=p_mwlite_feed-secondary_nav"
     },
     {
       name: "Shyam Venkatraman",
-      graduation: "2026",
+      graduation: "2027",
       role: "Executive Director",
-      image: "https://source.unsplash.com/random/400x400?man,professional,1",
-      quote: "placeholder"
+      image: "https://source.unsplash.com/random/400x400?man,professional,2",
+      quote: "The purpose of life is a life of purpose",
+      linkedin: "https://www.linkedin.com/in/shyam-venkatraman-b9374a21b/"
     },
     {
       name: "Arohi Soni",
       graduation: "2026",
       role: "Treasurer",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,2",
-      quote: "placeholder"
-    }
-    ,
+      image: "https://source.unsplash.com/random/400x400?woman,professional,1",
+      quote: "Winners are not those who never fail, but those who never quit",
+      linkedin: "https://www.linkedin.com/in/arohi-soni-ba9b5125b/"
+    },
     {
       name: "Aisha Jennath",
       graduation: "2026",
       role: "Initiative and Outreach Coordinator",
       image: "https://source.unsplash.com/random/400x400?woman,professional,2",
-      quote: "placeholder"
+      quote: "Win small, Win early, Win often",
+      linkedin: "https://www.linkedin.com/in/aishajennath"
     },
     {
-      name: "Krishna",
+      name: "Krishna Narwade",
       graduation: "2026",
       role: "Secretary",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,2",
-      quote: "placeholder"
+      image: "https://source.unsplash.com/random/400x400?woman,professional,3",
+      quote: "You only live once, but if you do it right, once is enough",
+      linkedin: "https://www.linkedin.com/in/krishna-narwade-439ba0258"
     },
     {
       name: "Nupur Sharma",
       graduation: "2026",
-      role: "Chair",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,2",
-      quote: "placeholder"
+      role: "Chairperson",
+      image: "https://source.unsplash.com/random/400x400?woman,professional,4",
+      quote: "If you can dream it you can do it",
+      linkedin: "https://in.linkedin.com/in/nupur-sharma-a24b66274"
     },
     {
       name: "Vasundhra Sharma",
       graduation: "2027",
       role: "Creative and Design Lead",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,2",
-      quote: "placeholder"
+      image: "https://source.unsplash.com/random/400x400?woman,professional,5",
+      quote: "There is no greater agony than bearing an untold story inside you.",
+      linkedin: "https://www.linkedin.com/in/vasundhra-s-80b081301?trk=contact-info"
     },
     {
       name: "Sukruta Nadkarni",
       graduation: "2027",
       role: "Chapter Affairs and Expansion Manager",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,2",
-      quote: "placeholder"
-    },
-    {
-      name: "Nikhil",
-      graduation: "2027",
-      role: "OneSpace Manager",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,2",
-      quote: "placeholder"
+      image: "https://source.unsplash.com/random/400x400?woman,professional,6",
+      quote: "Reach for the stars",
+      linkedin: "https://www.linkedin.com/in/sukruta-nadkarni"
     },
     {
       name: "Aatreyee",
       graduation: "2027",
       role: "Webmaster",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,2",
-      quote: "placeholder"
+      image: "https://source.unsplash.com/random/400x400?woman,professional,7",
+      quote: "Rage, rage against the dying of the light",
+      linkedin: "https://www.linkedin.com/in/aatreyee/"
+    },
+    {
+      name: "Nikhil K",
+      graduation: "2027",
+      role: "OneSpace Manager",
+      image: "https://source.unsplash.com/random/400x400?man,professional,3",
+      quote: "Slow and steady wins the race.",
+      linkedin: "https://www.linkedin.com/in/nikhil-k-6b40352b2/"
     },
     {
       name: "Vaibhavi",
       graduation: "2027",
       role: "Social Media Manager",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,2",
-      quote: "placeholder"
+      image: "https://source.unsplash.com/random/400x400?woman,professional,8",
+      quote: "placeholder",
+      linkedin: "#"
     },
     {
       name: "Ronak Madkaikar",
       graduation: "2026",
       role: "Projects Manager",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,2",
-      quote: "placeholder"
+      image: "https://source.unsplash.com/random/400x400?man,professional,4",
+      quote: "Where curiosity meets innovation, the impossible becomes inevitable.",
+      linkedin: "https://www.linkedin.com/in/ronak-madkaikar-732419285/"
     },
     {
       name: "Shrinidhi G",
       graduation: "2027",
-      role: "Creative and Design Lead",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,2",
-      quote: "placeholder"
+      role: "Design and Creatives",
+      image: "https://source.unsplash.com/random/400x400?woman,professional,9",
+      quote: "Dream beyond the cosmos",
+      linkedin: "https://www.linkedin.com/in/shrinidhi-g-64b0532b6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
     }
   ];
 
@@ -121,9 +133,21 @@ function Team() {
                   className="w-full h-64 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-1">{person.name}</h3>
-                  <p className="text-blue-400 mb-2">Class of {person.graduation}</p>
-                  <p className="text-sm mb-4">{person.role}</p>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="text-xl font-bold mb-1">{person.name}</h3>
+                      <p className="text-blue-400 mb-2">Class of {person.graduation}</p>
+                      <p className="text-sm mb-4">{person.role}</p>
+                    </div>
+                    <a 
+                      href={person.linkedin} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-blue-400 hover:text-blue-300 transition-colors"
+                    >
+                      <Linkedin size={20} />
+                    </a>
+                  </div>
                   <blockquote className="italic opacity-90 text-sm">
                     "{person.quote}"
                   </blockquote>
