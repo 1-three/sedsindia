@@ -3,6 +3,14 @@ import { Award, Briefcase, GraduationCap, Linkedin } from 'lucide-react';
 function Team() {
   const team = [
     {
+      name: "Nupur Sharma",
+      graduation: "2026",
+      role: "Chairperson",
+      image: "https://source.unsplash.com/random/400x400?woman,professional,4",
+      quote: "If you can dream it you can do it",
+      linkedin: "https://in.linkedin.com/in/nupur-sharma-a24b66274"
+    },
+    {
       name: "Amod Gawade",
       graduation: "2026",
       role: "Vice-Chair",
@@ -19,6 +27,14 @@ function Team() {
       linkedin: "https://www.linkedin.com/in/shyam-venkatraman-b9374a21b/"
     },
     {
+      name: "Krishna Narwade",
+      graduation: "2026",
+      role: "Secretary",
+      image: "https://source.unsplash.com/random/400x400?woman,professional,3",
+      quote: "You only live once, but if you do it right, once is enough",
+      linkedin: "https://www.linkedin.com/in/krishna-narwade-439ba0258"
+    },
+    {
       name: "Arohi Soni",
       graduation: "2026",
       role: "Treasurer",
@@ -33,22 +49,6 @@ function Team() {
       image: "https://source.unsplash.com/random/400x400?woman,professional,2",
       quote: "Win small, Win early, Win often",
       linkedin: "https://www.linkedin.com/in/aishajennath"
-    },
-    {
-      name: "Krishna Narwade",
-      graduation: "2026",
-      role: "Secretary",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,3",
-      quote: "You only live once, but if you do it right, once is enough",
-      linkedin: "https://www.linkedin.com/in/krishna-narwade-439ba0258"
-    },
-    {
-      name: "Nupur Sharma",
-      graduation: "2026",
-      role: "Chairperson",
-      image: "https://source.unsplash.com/random/400x400?woman,professional,4",
-      quote: "If you can dream it you can do it",
-      linkedin: "https://in.linkedin.com/in/nupur-sharma-a24b66274"
     },
     {
       name: "Vasundhra Sharma",
